@@ -10,10 +10,8 @@
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
   
-  api="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk1iNGBRPz1DQuKwtKzSwRFHckK996YPw"
-  
   output$distPlot <- renderLeaflet({
-      addResourcePath("mytiles", "C:/Users/31153/Documents/mapTiles/Google")
+      addResourcePath("mytiles", "/mapTiles/Google")
       
       my.locations_df <-  read.csv(input$data$datapath)
 
