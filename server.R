@@ -18,7 +18,7 @@ shinyServer(function(input, output) {
       my.locations_df <-  read.csv(input$data$datapath)
 
       leaflet() %>%
-      addTiles(urlTemplate = "/mytiles/{z}_{x}_{y}.png") %>%
+      addTiles() %>%
       addMarkers(data = my.locations_df , popup = my.locations_df$type,clusterOptions = markerClusterOptions())
   })
   

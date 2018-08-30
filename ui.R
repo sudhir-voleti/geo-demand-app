@@ -13,7 +13,7 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Clustering analysis"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
@@ -31,6 +31,7 @@ shinyUI(fluidPage(
                   tabPanel("Overview"),
                   
                   tabPanel("Leaflet",
+                           tags$style(type = "text/css", "#distPlot {height: calc(100vh - 150px) !important;}"),
                            leafletOutput("distPlot"))
                   
       )
