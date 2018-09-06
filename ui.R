@@ -13,14 +13,36 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Clustering analysis"),
+  titlePanel("Geospatial analysis"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
       fileInput("data","Choose the geospatial data",multiple = FALSE,accept = c("text/csv",
                                                                                 "text/comma-separated-values,text/plain",
-                                                                                ".csv"))
+                                                                                ".csv")),
+      selectInput("city","Choose the city",c("Hyderabad"="Hyderabad",
+                                           "Delhi" = "Delhi",
+                                           "Bangalore" = "Bangalore",
+                                           "Visakhapatnam" = "Visakhapatnam",
+                                           "Mumbai" = "Mumbai",
+                                           "Indore" = "Indore",
+                                           "Jaipur" = "Jaipur",
+                                           "Ahmedabad" = "Ahmedabad",
+                                           "Chennai" = "Chennai",
+                                           "Kanpur" = "Kanpur",
+                                           "Lucknow" = "Lucknow",
+                                           "Pune" = "Pune",
+                                           "Surat" = "Surat",
+                                           "Dehradun" = "Dehradun"),selected = "Hyderabad"),
+      
+      checkboxGroupInput("entities","Select the entites for analysis",c("Mall"="Mall",
+                                                                        "Restaurant"="Restaurant",
+                                                                        "Hospital"="Hospital",
+                                                                        "School"="School",
+                                                                        "Bank"="Bank"),selected = "Mall")
+      
+      
     ),
     
     # Show a plot of the generated distribution
@@ -28,7 +50,11 @@ shinyUI(fluidPage(
       
       tabsetPanel(type = "tabs",
                   
-                  tabPanel("Overview"),
+                  tabPanel("Overview",
+                           h4("How to use this Shiny application"),
+                           p("This application lets you visualize the clusters of entities selected in a city. You can select one or multiple entities from the checkbox for a given city in the dropdown."),
+                           p("For best experience open this application in Google Chrome.")
+                           ),
                   
                   tabPanel("Leaflet",
                            tags$style(type = "text/css", "#distPlot {height: calc(100vh - 150px) !important;}"),
