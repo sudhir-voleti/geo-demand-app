@@ -11,8 +11,6 @@
 shinyServer(function(input, output) {
   
   output$distPlot <- renderLeaflet({
-      addResourcePath("mytiles", "/mapTiles/Google")
-      
       my.locations_df <-  read.csv(input$data$datapath)
 
       leaflet() %>%
