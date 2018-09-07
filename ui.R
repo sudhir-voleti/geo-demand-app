@@ -18,23 +18,12 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-      fileInput("data","Choose the geospatial data",multiple = FALSE,accept = c("text/csv",
-                                                                                "text/comma-separated-values,text/plain",
-                                                                                ".csv")),
       selectInput("city","Choose the city",c("Hyderabad"="Hyderabad",
                                            "Delhi" = "Delhi",
                                            "Bangalore" = "Bangalore",
-                                           "Visakhapatnam" = "Visakhapatnam",
-                                           "Mumbai" = "Mumbai",
-                                           "Indore" = "Indore",
-                                           "Jaipur" = "Jaipur",
-                                           "Ahmedabad" = "Ahmedabad",
                                            "Chennai" = "Chennai",
-                                           "Kanpur" = "Kanpur",
-                                           "Lucknow" = "Lucknow",
-                                           "Pune" = "Pune",
-                                           "Surat" = "Surat",
-                                           "Dehradun" = "Dehradun"),selected = "Hyderabad"),
+                                           "Mumbai" = "Mumbai",
+                                           "Kolkata" = "Kolkata"),selected = "Hyderabad"),
       
       checkboxGroupInput("entities","Select the entites for analysis",c("Mall"="Mall",
                                                                         "Restaurant"="Restaurant",

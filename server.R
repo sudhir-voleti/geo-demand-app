@@ -11,7 +11,7 @@
 shinyServer(function(input, output) {
   
   output$distPlot <- renderLeaflet({
-      my.locations_df <-  read.csv(input$data$datapath)
+      my.locations_df <-  read.csv("data/places.csv",fileEncoding = "UTF-8-BOM")
       
       data_city <- my.locations_df %>% filter(city == input$city)
       data_filtered <- data_city %>% filter(type %in% c(input$entities))
