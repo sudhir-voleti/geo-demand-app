@@ -13,8 +13,8 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Geospatial analysis"),
-  
+  #titlePanel("Geospatial analysis"),
+  titlePanel(title=div(img(src="logo.png",align='right'),"Geospatial analysis")),
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
